@@ -64,7 +64,7 @@ namespace PvZ_Replanter_GUI
             // checkedListBox1
             // 
             checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "spine.bundle", "previews.bundle", "shared.bundle" });
+            checkedListBox1.Items.AddRange(new object[] { "spine.bundle", "previews.bundle", "music.bundle", "uialmanac.bundle" });
             checkedListBox1.Location = new Point(548, 20);
             checkedListBox1.Name = "checkedListBox1";
             checkedListBox1.Size = new Size(120, 526);

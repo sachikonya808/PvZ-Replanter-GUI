@@ -131,7 +131,30 @@ namespace PvZ_Replanter_GUI
 
         private void RestorerButton_Click(object sender, EventArgs e)
         {
+            string[] checkedItems = btnGetChecked_Click(sender, e);
 
+            int tasks = checkedItems.Length;
+            int progress = 0;
+            progressBar1.Value = 0;
+
+            foreach (string checkedItem in checkedItems)
+            {
+                if (checkedItem == null)
+                {
+                    MessageBox.Show("No Items Selected");
+                    return;
+                }
+                else
+                {
+                    string gameFilePath = FlagManager.FlagChecker(checkedItem);
+
+                    BundleRestorer.RestorerHandler(gameFilePath, this);
+
+                    progress++;
+                    progressBar1.Value = (progress * 100) / tasks;
+                    Application.DoEvents();
+                }
+            }
         }
 
         private void ModButton_Click(object sender, EventArgs e)

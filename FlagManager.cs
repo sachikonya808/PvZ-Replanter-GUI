@@ -19,6 +19,14 @@ namespace PvZ_Replanter_GUI
             {
                 return "-preview";
             }
+            if (file == "music.bundle")
+            {
+                return "-music";
+            }
+            if (file == "uialmanac.bundle")
+            {
+                return "-almanac";
+            }
 
             return "0";
         }
@@ -45,6 +53,16 @@ namespace PvZ_Replanter_GUI
                     {
                         return config.preview_bundle_location;
                     }
+
+                    if (flags.Contains("-music"))
+                    {
+                        return config.music_bundle_location;
+                    }
+
+                    if (flags.Contains("-almanac"))
+                    {
+                        return config.almanac_bundle_location;
+                    }
                 }
             }
 
@@ -55,6 +73,8 @@ namespace PvZ_Replanter_GUI
         {
             public string spine_bundle_location { get; set; }
             public string preview_bundle_location { get; set; }
+            public string music_bundle_location { get; set; }
+            public string almanac_bundle_location { get; set; }
         }
     }
 }
