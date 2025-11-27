@@ -27,6 +27,14 @@ namespace PvZ_Replanter_GUI
             {
                 return "-almanac";
             }
+            if (file == "vfx.bundle")
+            {
+                return "-vfx";
+            }
+            if (file == "gameplayatlases.bundle")
+            {
+                return "-gameplayatlases";
+            }
 
             return "0";
         }
@@ -63,6 +71,14 @@ namespace PvZ_Replanter_GUI
                     {
                         return config.almanac_bundle_location;
                     }
+                    if (flags.Contains("-vfx"))
+                    {
+                        return config.vfx_bundle_location;
+                    }
+                    if (flags.Contains("-gameplayatlases"))
+                    {
+                        return config.gameplayatlases_bundle_location;
+                    }
                 }
             }
 
@@ -75,6 +91,8 @@ namespace PvZ_Replanter_GUI
             public string preview_bundle_location { get; set; }
             public string music_bundle_location { get; set; }
             public string almanac_bundle_location { get; set; }
+            public string vfx_bundle_location { get; set; }
+            public string gameplayatlases_bundle_location { get; set; }
         }
     }
 }

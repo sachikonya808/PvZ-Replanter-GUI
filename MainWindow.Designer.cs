@@ -39,6 +39,8 @@ namespace PvZ_Replanter_GUI
             RestorerButton = new Button();
             progressBar1 = new ProgressBar();
             ReplaceButton = new Button();
+            textBox1 = new TextBox();
+            launchGameBtn = new Button();
             SuspendLayout();
             // 
             // DecompressButton
@@ -64,10 +66,10 @@ namespace PvZ_Replanter_GUI
             // checkedListBox1
             // 
             checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Items.AddRange(new object[] { "spine.bundle", "previews.bundle", "music.bundle", "uialmanac.bundle" });
-            checkedListBox1.Location = new Point(548, 20);
+            checkedListBox1.Items.AddRange(new object[] { "spine.bundle", "previews.bundle", "music.bundle", "uialmanac.bundle", "vfx.bundle", "gameplayatlases.bundle" });
+            checkedListBox1.Location = new Point(479, 20);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(120, 526);
+            checkedListBox1.Size = new Size(189, 526);
             checkedListBox1.TabIndex = 2;
             checkedListBox1.SelectedIndexChanged += checkedListBox1_SelectedIndexChanged;
             // 
@@ -105,6 +107,7 @@ namespace PvZ_Replanter_GUI
             // 
             OutputLog.Location = new Point(721, 14);
             OutputLog.Name = "OutputLog";
+            OutputLog.ReadOnly = true;
             OutputLog.Size = new Size(205, 532);
             OutputLog.TabIndex = 6;
             OutputLog.Text = "";
@@ -139,11 +142,35 @@ namespace PvZ_Replanter_GUI
             ReplaceButton.UseVisualStyleBackColor = true;
             ReplaceButton.Click += ReplaceButton_Click;
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Control;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Location = new Point(826, 595);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(100, 16);
+            textBox1.TabIndex = 10;
+            textBox1.Text = "v0.3";
+            textBox1.TextAlign = HorizontalAlignment.Right;
+            // 
+            // launchGameBtn
+            // 
+            launchGameBtn.Location = new Point(332, 523);
+            launchGameBtn.Name = "launchGameBtn";
+            launchGameBtn.Size = new Size(141, 23);
+            launchGameBtn.TabIndex = 11;
+            launchGameBtn.Text = "Launch Game";
+            launchGameBtn.UseVisualStyleBackColor = true;
+            launchGameBtn.Click += button1_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(938, 612);
+            Controls.Add(launchGameBtn);
+            Controls.Add(textBox1);
             Controls.Add(ReplaceButton);
             Controls.Add(progressBar1);
             Controls.Add(RestorerButton);
@@ -157,6 +184,7 @@ namespace PvZ_Replanter_GUI
             Name = "MainWindow";
             Text = "Plants. vs Zombies: REPLANTER";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -171,5 +199,7 @@ namespace PvZ_Replanter_GUI
         private Button RestorerButton;
         private ProgressBar progressBar1;
         private Button ReplaceButton;
+        private TextBox textBox1;
+        private Button launchGameBtn;
     }
 }

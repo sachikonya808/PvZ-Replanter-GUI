@@ -23,7 +23,8 @@ namespace PvZ_Replanter_GUI
         {
             if (OutputLog.InvokeRequired)
             {
-                OutputLog.Invoke(new Action(() => OutputLog.AppendText(message + Environment.NewLine)));
+                string hourMinute = DateTime.Now.ToString("HH:mm");
+                OutputLog.Invoke(new Action(() => OutputLog.AppendText($"[{hourMinute}]: {message}" + Environment.NewLine)));
             }
             else
             {
@@ -212,7 +213,7 @@ namespace PvZ_Replanter_GUI
                 else
                 {
                     string gameFilePath = FlagManager.FlagChecker(checkedItem);
-                    
+
                     BundleReplacer.ReplacerHandler(gameFilePath, this);
 
                     progress++;
@@ -220,6 +221,14 @@ namespace PvZ_Replanter_GUI
                     Application.DoEvents();
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string gamePath = File.ReadAllText("./config/game_path.txt");
+            gamePath = Path.Combine(gamePath, "Replanted.exe");
+
+            Process.Start(gamePath);
         }
     }
 }
